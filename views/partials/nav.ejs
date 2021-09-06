@@ -42,20 +42,3 @@
   </div>
 </nav>
 
-<script>
-  // typewrite effect for appname
-var ele = document.querySelector("#appname");
-var start="";
-var end ="YouBlog"
-var idx=0;
-var unscub=undefined;
-unscub= setInterval(() => {
-    if(idx==6){
-        clearInterval(unscub);
-    }
-    var char = end[idx];
-    start+=char;
-    ele.textContent = start;
-    idx++;
-}, 400);
-</script>
