@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs',{ title: 'My Posts' }) %>
+  </head>
+  <body>
+    <%- include('../partials/nav.ejs',{ path: '/posts', username: username }) %>
+    <div class="container">
+      <div class="row">
+        <% if (posts.length === 0) { %>
+        <div class="col-md-12" style=" align-items: center; text-align: center; margin-top: 30px ;"></div>
+          <h3 style="color: cornsilk; margin-left: 400px;font-family: Lucida Console; letter-spacing: .05cm; font-size: 45px;">No Posts Yet</h3>
+        </div>
+        <% } %>
+
+        <div class="col-md-12" style="text-align: center; margin-top: 30px">
+          <a href="/posts/create" class="btn btn-info" style="font-family: Lucida Console; letter-spacing: .05cm;">Create your blog</a>
+        </div>
+
+        <% for( let postIdx = 0; postIdx < posts.length; postIdx++ ) { %> <%-
+        include('../partials/postItem.ejs',{ post: posts[postIdx]}) %> <% } %>
+      </div>
+    </div>
+  </body>
+</html>

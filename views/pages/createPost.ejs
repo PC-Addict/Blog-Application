@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', { title: 'Create Post'}) %>
+    <style>
+      .create-post {
+        margin-top: 30px;
+        justify-content: center;
+      }
+
+      .create-post-card {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('../partials/nav.ejs',{ path: '/posts', username: username}) %>
+    <div class="container">
+      <div class="row create-post">
+        <div class="col-md-5">
+          <div class="card create-post-card" style="background: rgb(245, 234, 188);">
+            <h3 class="card-title" style="text-align:center;letter-spacing:0.02cm;">Write your Blog</h3>
+            <div class="card-text create-post-content">
+              <form
+                action="/posts/create"
+                method="post"
+                enctype="multipart/form-data"
+                style="font-family: Lucida Console; letter-spacing: .05cm;"
+              >
+                <div class="form-group">
+                  <label for="title">Post Title</label>
+                  <input name="title" type="text" class="form-control" placeholder="Enter title">
+                </div>
+                <div class="form-group">
+                  <label for="description">Post Description</label>
+                  <input type="text" name="description" class="form-control" placeholder="Type Description">
+                </div>
+                <div class="form-group">
+                  <label for="image">Image</label>
+                  <input type="file" name="image" class="form-control" style=" font-size: 17px;">
+                </div><br>
+                <div class="form-group" style="align-items: center; text-align: center;">
+                  <button type="submit" class="btn btn-success" >Create</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

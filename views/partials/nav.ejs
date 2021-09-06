@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="/static/css/nav.css" />
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: rgb(80, 4, 80);">
+  <a class="navbar-brand" style="font-family: Lucida Sans Typewriter; font-size: 50px; font-weight: bolder;" href="/" id='appname'>YouBlog</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav" style="font-weight: 300;  font-family: 'Courier New'; ">
+      <li class="nav-item <%= path === '/' ? 'active' : '' %>">
+        <a class="nav-link" href="/"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item <%= path === '/about' ? 'active' : '' %>">
+        <a class="nav-link disabled" href="/about">About</a>
+      </li>
+      <% if (!username) { %>
+      <li class="nav-item <%= path === '/signup' ? 'active' : '' %>">
+        <a class="nav-link" href="/signup">Sign Up</a>
+      </li>
+      <li class="nav-item <%= path === '/signin' ? 'active' : '' %>">
+        <a class="nav-link" href="/signin">Log In</a>
+      </li>
+      <% } %> <% if (username) { %>
+      <li class="nav-item <%= path === '/posts' ? 'active' : '' %>">
+        <a class="nav-link" href="/posts">Posts</a>
+      </li>
+      <li class="nav-item <%= path === '/signin' ? 'active' : '' %>">
+        <a class="nav-link" href="/logout">Log Out</a>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  // typewrite effect for appname
+var ele = document.querySelector("#appname");
+var start="";
+var end ="YouBlog"
+var idx=0;
+var unscub=undefined;
+unscub= setInterval(() => {
+    if(idx==6){
+        clearInterval(unscub);
+    }
+    var char = end[idx];
+    start+=char;
+    ele.textContent = start;
+    idx++;
+}, 400);
+</script>

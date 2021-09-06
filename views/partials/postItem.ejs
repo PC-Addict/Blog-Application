@@ -1,0 +1,28 @@
+<style>
+  .postItem {
+    margin-top: 30px;
+  }
+
+  .postItem__content {
+    padding: 30px;
+  }
+</style>
+
+<div class="col-md-4 postItem">
+  <div class="card" style="background: rgb(245, 234, 188);">
+    <div class="card-body postItem__content">
+      <h4 class="card-title" style="font-family: Lucida Console; letter-spacing: .05cm; text-align: center;"><%= post.title %></h4>
+      <img width="300" src="<%= post.imageUrl %> " alt="" />
+      <h6 style="padding: 20px 0px;font-family: Avanta Garde; text-align: justify;" class="card-text" >
+        <%= post.description %>
+      </h6>
+      <h5 style="font-family: Bahnschrift; text-align: right; font-size: 10px;" class="card-text" >
+        ~ <%= post.author.toUpperCase() %>
+      </h5>
+      <% if (username.toLowerCase() === post.author) { %>
+      <a href="/posts/edit/<%= post.id %> " class="btn btn-dark" style="font-family: Lucida Console; letter-spacing: .05cm;">Edit</a>
+      <a href="/posts/delete/<%= post.id %> " class="btn btn-danger" style="font-family: Lucida Console; letter-spacing: .05cm;">Delete</a>
+      <% } %>
+    </div>
+  </div>
+</div>
